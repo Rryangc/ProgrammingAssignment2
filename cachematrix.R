@@ -3,7 +3,11 @@
 ## 2. cacheSolve: compute inverse of the "matrix" using makeCacheMatrix
 
 ## This function creates a special "matrix" object that can cache 
-## its inverse.
+## its inverse. It provides a list of functions:
+##	  set: set the value of the vector
+##    get: get the value of the vector
+##    setinverse: set the value of the mean
+##    getinverse: get the value of the mean
 
 makeCacheMatrix <- function(x = matrix()) {
 	inverse <- NULL
@@ -38,13 +42,13 @@ cacheSolve <- function(x, ...) {
 
 ## TESTING OF THIS PAIR OF FUNCTIONS:
 ##
-## > x<-matrix(1:4, 2,2)
-## > y<-makeCacheMatrix(x)
+## > x <- matrix(rnorm(4), 2, 2)
+## > y <- makeCacheMatrix(x)
 ## > cacheSolve(y)
 ## > cacheSolve(y)
 ##
-## The result of the 3rd command will be inverse matrix of x
+## The result of the 3rd command will be the inverse matrix of x
 ##				without the statement of "getting cached data"
-## The result of the 4th command will be inverse matrix of x
+## The result of the 4th command will be the inverse matrix of x
 ##				with the statement of "getting cached data"
 
